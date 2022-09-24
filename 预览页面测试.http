@@ -1,0 +1,147 @@
+@endpoint = http://localhost:8080
+# @endpoint =  http://static.smallsaas.cn
+
+###获取所有配置页面
+GET {{endpoint}}/dev/auto/preview/forms
+
+###获取全部页面简单信息 appid可过滤查询
+GET {{endpoint}}/dev/auto/preview/forms/simple?pageNum=1&pageSize=50&appid=DEFAULT
+
+### 查看app列表
+GET {{endpoint}}/dev/auto/preview/appList
+
+#### 设置当前appid
+POST {{endpoint}}/dev/auto/preview/setAppId/DEFAULT
+
+### 查看当前appid
+GET {{endpoint}}/dev/auto/preview/getAppId
+
+### 增加和修改 页面配置json appid选填 默认是当前appid
+POST {{endpoint}}/dev/auto/preview/form/5555599?appid=DEFAULT
+{
+    "request": {},
+    "pageStyle": {},
+    "loadApi": "",
+    "response": {
+      "data": "data"
+    },
+    "name": "seniorConfig",
+    "moduleContainer": {
+      "background": "white",
+      "height": ""
+    },
+    "title": "高级配置",
+    "moduleData": {
+      "c7646b23-2c47-4aa5-a7de-51c006bbc26c": {
+        "navList": [
+          {
+            "img": "http://static.smallsaas.cn/house/2022/svg/senior/houseEstateConfig.svg",
+            "nav": "/pages/my/seniorConfig/index?id=8888",
+            "color": "#2376b7",
+            "title": "小区配置"
+          },
+          {
+            "img": "http://static.smallsaas.cn/house/2022/svg/senior/userConfig.svg",
+            "nav": "/pages/my/seniorConfig/index?id=8889",
+            "color": "#ec2c64",
+            "title": "用户配置"
+          },
+          {
+            "img": "http://static.smallsaas.cn/house/2022/svg/senior/communityConfig.svg",
+            "nav": "/pages/my/seniorConfig/index?id=8890",
+            "color": "#207f4c",
+            "title": "社区配置"
+          }
+        ],
+        "itemModule": {
+          "name": "MagicItem"
+        }
+      }
+    },
+    "version": "1",
+    "modules": [
+      {
+        "container": {
+          "grid-template-columns": "repeat(3, 1fr)"
+        },
+        "name": "",
+        "type": "navlist",
+        "key": "c7646b23-2c47-4aa5-a7de-51c006bbc26c"
+      }
+    ]
+  }
+
+
+
+
+### 获取具体页面配置信息
+GET {{endpoint}}/dev/auto/preview/form?pageId=5555598
+
+
+###  设置当前预览页ID
+PUT {{endpoint}}/dev/auto/preview/current/5555599
+
+###获取当前预览页ID
+GET {{endpoint}}/dev/auto/preview/current    
+
+### 获取当前预览页配置
+GET {{endpoint}}/dev/auto/preview/current/form 
+
+#### 设置当前预览页配置 id可不填 填了将当前页面 复制一份到该id中
+PUT {{endpoint}}/dev/auto/preview/current/from?id=5555598
+{
+    "request": {},
+    "pageStyle": {},
+    "loadApi": "",
+    "response": {
+      "data": "data"
+    },
+    "name": "seniorConfig",
+    "moduleContainer": {
+      "background": "white",
+      "height": ""
+    },
+    "title": "高级配置",
+    "moduleData": {
+      "c7646b23-2c47-4aa5-a7de-51c006bbc26c": {
+        "navList": [
+          {
+            "img": "http://static.smallsaas.cn/house/2022/svg/senior/houseEstateConfig.svg",
+            "nav": "/pages/my/seniorConfig/index?id=8888",
+            "color": "#2376b7",
+            "title": "小区配置"
+          },
+          {
+            "img": "http://static.smallsaas.cn/house/2022/svg/senior/userConfig.svg",
+            "nav": "/pages/my/seniorConfig/index?id=8889",
+            "color": "#ec2c64",
+            "title": "用户配置"
+          },
+          {
+            "img": "http://static.smallsaas.cn/house/2022/svg/senior/communityConfig.svg",
+            "nav": "/pages/my/seniorConfig/index?id=8890",
+            "color": "#207f4c",
+            "title": "社区配置"
+          }
+        ],
+        "itemModule": {
+          "name": "MagicItem"
+        }
+      }
+    },
+    "version": "1",
+    "modules": [
+      {
+        "container": {
+          "grid-template-columns": "repeat(3, 1fr)"
+        },
+        "name": "",
+        "type": "navlist",
+        "key": "c7646b23-2c47-4aa5-a7de-51c006bbc26c"
+      }
+    ]
+  }
+
+
+
+
