@@ -1,28 +1,23 @@
 @endpoint = http://static.smallsaas.cn
+# @endpoint = http://localhost:8080
 
+### 查看路由
+GET {{endpoint}}/dev/auto/forms/5555599/routes/1
 
-### 修改指定位置路由  index从0开始
-PUT {{endpoint}}/dev/auto/route/5555599
+### 添加新路由
+POST {{endpoint}}/dev/auto/forms/5555599/routes
 {
-    "index":1,
     "img": "http://static.smallsaas.cn/house/2022/svg/senior/communityConfig.svg",
     "nav": "/pages/my/seniorConfig/index?id=8890",
     "color": "###207f4c",
-    "title": "社区配置1"
-}
-
-###移动位置  index 为当前位置 target是要指定的位置
-PUT {{endpoint}}/dev/auto/route/position/5555599
-{
-    "index":0,
-    "target":2
+    "title": "社区配置123"
 }
 
 
-### 添加路由 index为指定路由位置
-PUT {{endpoint}}/dev/auto/route/add/5555599
+### 修改指定位置路由, 可任意变更其中一个属性
+#PUT {{endpoint}}/dev/auto/route/5555599
+PUT {{endpoint}}/dev/auto/forms/5555599/routes/1
 {
-    "index":0,
     "img": "http://static.smallsaas.cn/house/2022/svg/senior/communityConfig.svg",
     "nav": "/pages/my/seniorConfig/index?id=8890",
     "color": "###207f4c",
@@ -30,16 +25,33 @@ PUT {{endpoint}}/dev/auto/route/add/5555599
 }
 
 
-### 移除路由 index为指定路由位置
-PUT {{endpoint}}/dev/auto/route/remove/5555599
+### 变更路由跳转页面  如果多个参数有数字的请把pageId写在第一位
+POST {{endpoint}}/dev/auto/forms/5555599/routes/1/op/next
+
 {
-    "index":3
+   "pageid": 42342432
 }
 
 
-### 复制路由 index 为要被复制的路由位置 target 位置到的位置
-PUT {{endpoint}}/dev/auto/route/copy/5555599
+### 移动指定路由项
+POST {{endpoint}}/dev/auto/forms/5555599/route/op/arrange
+
 {
-    "index":0,
-    "target":3
+    "from": 0,
+    "to": 2
+}
+
+### 移除指定路由项
+POST {{endpoint}}/dev/auto/forms/5555599/route/op/remove
+
+{
+    "index":1
+}
+
+
+### 复制指定路由项 index
+POST {{endpoint}}/dev/auto/forms/5555599/route/op/copy
+
+{
+    "index":2
 }
