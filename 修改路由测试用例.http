@@ -1,5 +1,30 @@
-@endpoint = http://static.smallsaas.cn
-# @endpoint = http://localhost:8080
+# @endpoint = http://static.smallsaas.cn
+@endpoint = http://localhost:8080
+
+
+# =======================================路由组件 Start===============================
+
+### 获取路由组件
+GET {{endpoint}}/dev/auto/forms/5555599/route/module?currentModule=1
+
+
+### 变更路由组件
+POST {{endpoint}}/dev/auto/forms/5555599/route/module
+
+{
+    "currentModule":0,
+    "moduleName": "MagicItem1"
+}
+
+
+# =======================================路由组件 End================================
+
+
+# =======================================路由 Start==================================
+
+
+### 查询所有路由
+GET {{endpoint}}/dev/auto/forms/5555599/routes?currentModule=0
 
 ### 查看路由
 GET {{endpoint}}/dev/auto/forms/5555599/routes/1
@@ -7,6 +32,7 @@ GET {{endpoint}}/dev/auto/forms/5555599/routes/1
 ### 添加新路由
 POST {{endpoint}}/dev/auto/forms/5555599/routes
 {
+    "currentModule":0,
     "img": "http://static.smallsaas.cn/house/2022/svg/senior/communityConfig.svg",
     "nav": "/pages/my/seniorConfig/index?id=8890",
     "color": "###207f4c",
@@ -18,6 +44,7 @@ POST {{endpoint}}/dev/auto/forms/5555599/routes
 #PUT {{endpoint}}/dev/auto/route/5555599
 PUT {{endpoint}}/dev/auto/forms/5555599/routes/1
 {
+    "currentModule":0,
     "img": "http://static.smallsaas.cn/house/2022/svg/senior/communityConfig.svg",
     "nav": "/pages/my/seniorConfig/index?id=8890",
     "color": "###207f4c",
@@ -29,7 +56,8 @@ PUT {{endpoint}}/dev/auto/forms/5555599/routes/1
 POST {{endpoint}}/dev/auto/forms/5555599/routes/1/op/next
 
 {
-   "pageid": 42342432
+    "currentModule":1,
+   "pageid": 423424321
 }
 
 
@@ -37,7 +65,8 @@ POST {{endpoint}}/dev/auto/forms/5555599/routes/1/op/next
 POST {{endpoint}}/dev/auto/forms/5555599/route/op/arrange
 
 {
-    "from": 0,
+     "currentModule":1,
+    "from": 1,
     "to": 2
 }
 
@@ -45,6 +74,7 @@ POST {{endpoint}}/dev/auto/forms/5555599/route/op/arrange
 POST {{endpoint}}/dev/auto/forms/5555599/route/op/remove
 
 {
+    "currentModule":1,
     "index":1
 }
 
@@ -53,5 +83,8 @@ POST {{endpoint}}/dev/auto/forms/5555599/route/op/remove
 POST {{endpoint}}/dev/auto/forms/5555599/route/op/copy
 
 {
-    "index":2
+     "currentModule":1,
+    "index":1
 }
+
+# =======================================路由 End==================================

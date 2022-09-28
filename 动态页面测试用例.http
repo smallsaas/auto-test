@@ -1,0 +1,62 @@
+@endpoint = http://static.smallsaas.cn
+# @endpoint=http://localhost:8080
+
+### 创建一个新页面, 并加到当前页面
+### pageType: [navlist, autolist, autoform, autopage]
+POST {{endpoint}}/dev/auto/forms/current
+
+{
+    "pageType": "navlist"
+}
+
+
+### 追加新组件  暂时支持navlist
+POST {{endpoint}}/dev/auto/forms/5555599/modules
+
+{
+    "moduleName": "navlist"
+}
+
+
+### 移动指定组件
+POST {{endpoint}}/dev/auto/forms/5555599/module/op/arrange
+
+{
+    "from": 0,
+    "to": 1
+}
+
+
+### 移除指定组件
+POST {{endpoint}}/dev/auto/forms/5555599/module/op/remove
+
+{
+    "index":0
+}
+
+
+### 复制指定组件
+POST {{endpoint}}/dev/auto/forms/5555599/module/op/copy
+
+{
+    "index":0
+}
+
+
+### 编辑指定的页面组件
+POST {{endpoint}}/dev/auto/forms/5555599/modules/current
+
+{
+    "index":0
+}
+
+### 获取指定的页面组件
+GET {{endpoint}}/dev/auto/forms/5555599/modules/current
+
+
+### 对指定的组件进行编辑
+### 路由组件
+### 列表组件
+### 其他组件属性 (对通用属性进行编辑)
+
+
