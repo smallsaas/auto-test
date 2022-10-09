@@ -1,0 +1,11 @@
+# @endpoint = http://static.smallsaas.cn
+@endpoint = http://localhost:8080
+
+### 修改页面配置属性 可嵌套配置
+### 如果该属性没有 会自动加上
+
+PUT {{endpoint}}/dev/auto/forms/1000006651/page
+{
+"title": "换房记录1",
+"moduleContainer": {"background":"white"}
+}

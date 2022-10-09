@@ -1,0 +1,51 @@
+@endpoint = http://static.smallsaas.cn
+# @endpoint = http://localhost:8080
+### 查询所有columns
+GET {{endpoint}}/dev/auto/forms/1000006651/columns?currentModule=0
+
+### 查看colums
+GET {{endpoint}}/dev/auto/forms/1000006651/columns/1
+
+### 添加新colums
+POST {{endpoint}}/dev/auto/forms/1000006651/columns
+{
+    "field": "userPhone",
+    "width": 100,
+    "label": "房东电话"
+  }
+
+
+### 修改指定位置colums, 可任意变更其中一个属性
+PUT {{endpoint}}/dev/auto/forms/1000006651/columns/1
+{
+
+    "width": 98,
+
+}
+
+
+### 移动指定colums项
+POST {{endpoint}}/dev/auto/forms/1000006651/columns/op/arrange
+
+{
+     "currentModule":0,
+    "from": 1,
+    "to": 0
+}
+
+### 移除指定colums项
+POST {{endpoint}}/dev/auto/forms/1000006651/columns/op/remove
+
+{
+    "currentModule":0,
+    "index":5
+}
+
+
+### 复制指定colums项 index
+POST {{endpoint}}/dev/auto/forms/1000006651/columns/op/copy
+
+{
+     "currentModule":0,
+    "index":5
+}
