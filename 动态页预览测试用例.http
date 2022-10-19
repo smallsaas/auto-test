@@ -1,5 +1,8 @@
-@endpoint = http://localhost:8080
-# @endpoint =  http://static.smallsaas.cn
+# @endpoint = http://localhost:8080
+@endpoint =  http://static.smallsaas.cn
+
+### 查看app列表
+GET {{endpoint}}/dev/auto/preview/appList
 
 ###获取所有配置页面
 GET {{endpoint}}/dev/auto/preview/forms

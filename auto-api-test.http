@@ -1,0 +1,803 @@
+@endpoint = http://localhost:8080
+@endpoint = http://lowcode.smallsaas.cn
+
+
+# ### 登录
+# POST {{endpoint}}/openapi/sys/oauth/login HTTP/1.1
+# content-type: application/json
+
+# {
+#     "account": "admin",
+#     "password": "111111"
+# }
+
+
+#####################################
+### 小程序app管理（lc_low_auto_app）
+#####################################
+
+### 新建 app管理
+POST  {{endpoint}}/openapi/crud/lc_low_auto_app/lowAutoApp/lowAutoApps/
+content-type: application/json
+
+{
+  "name": "test_app",
+  "logo": "test1",
+  "notes": "test"
+}
+
+### 根据id查询 app管理
+### /openapi/crud/lc_low_auto_app/lowAutoApp/lowAutoApps/{id}
+GET {{endpoint}}/openapi/crud/lc_low_auto_app/lowAutoApp/lowAutoApps/37
+
+### 根据id修改 app管理
+### /openapi/crud/lc_low_auto_app/lowAutoApp/lowAutoApps/{id}
+PUT {{endpoint}}/openapi/crud/lc_low_auto_app/lowAutoApp/lowAutoApps/27
+
+{
+  "name": "test_app",
+  "logo": "test1",
+  "notes": "test",
+  "items": [
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    }
+  ]
+}
+
+### 根据id删除 app管理
+### /openapi/crud/lc_low_auto_app/lowAutoApp/lowAutoApps/{id}
+DELETE {{endpoint}}/openapi/crud/lc_low_auto_app/lowAutoApp/lowAutoApps/24
+
+### 多条件查询所有的app
+### pageNum = 页码
+### pageSize = 每页显示数
+### search = 
+### orderBy = 排序
+### sort = desc（降序）/ dsc（升序）
+### 除了以上参数，lc_low_auto_app中的每一个字段都可以作为参数
+GET {{endpoint}}/openapi/crud/lc_low_auto_app/lowAutoApp/lowAutoApps?
+
+### 获取app列表
+GET {{endpoint}}/openapi/lc/apps/app
+
+
+#####################################
+### page页面管理（lc_api_auto_page）
+#####################################
+
+###新建 page
+POST  {{endpoint}}/openapi/crud/app/lowAutoPage/lowAutoPages/
+content-type: application/json
+
+{
+  "version": 1,
+  "name": "12",
+  "title": "12",
+  "pageStyle": "Str2ing",
+  "moduleContainer": "String",
+  "dateSource": "String",
+  "appId": 0,
+  "mcPadding": "String",
+  "mcMargin": "String",
+  "mcFill": "String",
+  "mcCircle": "String",
+  "mcCorner": "String",
+  "mcAlignment": "String",
+  "mcOrientation": "String",
+  "mcJustify": "String",
+  "mcSpan": "String",
+  "mcSpacing": "String",
+  "mcColor": "String",
+  "mcFont": "String",
+  "mcLineLimit": "String",
+  "mcMultilineTextAlignment": "String",
+  "dsApi": "String",
+  "dstType": "String",
+  "dseData": "String",
+  "dseTotal": "String",
+  "sdRadius": "String",
+  "sdColor": "String",
+  "sdX": "String",
+  "sdY": "String",
+  "stColor": "String",
+  "stLineWidth": 0,
+  "log": {},
+  "items": [
+    {
+      "name": "page-test1"
+    },
+    {
+      "name": "page-test2"
+    }
+  ]
+}
+
+### 根据id查看 page
+### /openapi/crud/app/lowAutoPage/lowAutoPages/{id}
+GET {{endpoint}}/openapi/crud/app/lowAutoPage/lowAutoPages/5
+
+### 根据id修改 page
+### /openapi/crud/app/lowAutoPage/lowAutoPages/{id}
+PUT {{endpoint}}/openapi/crud/app/lowAutoPage/lowAutoPages/35
+content-type: application/json
+
+{
+  "version": 1.0,
+  "name": "test",
+  "title": "test",
+  "pageStyle": "test",
+  "moduleContainer": "test",
+  "dateSource": "test",
+  "appId": 25,
+  "mcPadding": "test",
+  "mcMargin": "test",
+  "mcFill": "test",
+  "mcCircle": "String",
+  "mcCorner": "String",
+  "mcAlignment": "String",
+  "mcOrientation": "String",
+  "mcJustify": "String",
+  "mcSpan": "String",
+  "mcSpacing": "String",
+  "mcColor": "String",
+  "mcFont": "String",
+  "mcLineLimit": "String",
+  "mcMultilineTextAlignment": "String",
+  "dsApi": "test",
+  "dstType": "test",
+  "dseData": "test",
+  "dseTotal": "String",
+  "sdRadius": "String",
+  "sdColor": "String",
+  "sdX": "String",
+  "sdY": "String",
+  "stColor": "String",
+  "stLineWidth": 0,
+  "items": [
+    {
+      "name": "page-put-test1"
+    },
+    {
+      "name": "page-put-test2"
+    }
+  ]
+}
+
+### 根据id删除 page
+### /openapi/crud/app/lowAutoPage/lowAutoPages/{id}
+DELETE {{endpoint}}/openapi/crud/app/lowAutoPage/lowAutoPages/4
+
+### 多条件查询所有的page
+### pageNum = 页码
+### pageSize = 每页显示数
+### search = 
+### orderBy = 排序
+### sort = desc（降序）/ dsc（升序）
+### 除了以上参数，lc_low_auto_page表中的每一个字段都可以作为参数
+GET {{endpoint}}/openapi/crud/app/lowAutoPage/lowAutoPages
+
+### 根据id获取动态页面配置参数
+### /lc/app/pageConfig/dynamicPageConfig/{pageId}
+GET {{endpoint}}/lc/app/pageConfig/dynamicPageConfig/5
+
+### 根据pageName获取页面配置参数
+### /pageConfig/{pageName}
+GET {{endpoint}}/lc/app/pageConfig/Home
+
+### 根据appId获取该app下的所有page
+### /lc/app/pages/{appId}
+GET {{endpoint}}/lc/app/pages/1
+
+
+#####################################
+### 组件实例管理（lc_low_auto_module）
+#####################################
+
+###新建 组件实例管理
+POST {{endpoint}}/openapi/crud/lc_low_auto_module/lowAutoModule/lowAutoModules/
+
+{
+  "type": "1",
+  "moduleKey": "1",
+  "name": "test",
+  "pageId": 16,
+  "binding": "1",
+  "bindingTarget": "1",
+  "container": "1",
+  "moduleData": "String1",
+  "lowAutoModuleProps": [],
+  "lowAutoModuleDatas": []
+}
+
+
+###新建 组件实例管理 (AutoLayout)
+POST {{endpoint}}/openapi/crud/lc_low_auto_module/lowAutoModule/lowAutoModules/
+
+{
+  "type": "1",
+  "moduleKey": "3b15bc68-38cc-11ed-b20b-00163e023494",
+  "name": "test",
+  "pageId": 0,
+  "binding": {},
+  "container": {},
+  "moduleData": "String1",
+  "lowAutoModuleProps": [],
+  "lowAutoModuleDatas": []
+}
+
+
+
+### 根据id查看 组件实例管理
+### /openapi/crud/lc_low_auto_module/lowAutoModule/lowAutoModules/{id}
+GET {{endpoint}}/openapi/crud/lc_low_auto_module/lowAutoModule/lowAutoModules/8
+
+### 根据id修改 组件实例管理
+### /openapi/crud/lc_low_auto_module/lowAutoModule/lowAutoModules/{id}
+PUT {{endpoint}}/openapi/crud/lc_low_auto_module/lowAutoModule/lowAutoModules/
+
+{
+  "type": "2",
+  "moduleKey": "1",
+  "name": "test",
+  "pageId": 16,
+  "binding": "1",
+  "bindingTarget": "1",
+  "container": "1",
+  "moduleData": "String1",
+  "lowAutoModuleProps": [],
+  "lowAutoModuleDatas": []
+}
+
+### 根据id删除 组件实例管理
+### /openapi/crud/lc_low_auto_module/lowAutoModule/lowAutoModules/{id}
+DeLETE {{endpoint}}/openapi/crud/lc_low_auto_module/lowAutoModule/lowAutoModules/10
+
+### 多条件查询所有的组件实例管理
+### pageNum = 页码
+### pageSize = 每页显示数
+### search = 
+### orderBy = 排序
+### sort = desc（降序）/ dsc（升序）
+### 除了以上参数，lc_low_auto_module表中的每一个字段都可以作为参数
+GET {{endpoint}}/openapi/crud/lc_low_auto_module/lowAutoModule/lowAutoModules?
+
+### 获取对应pageId下的所有module
+### /openapi/lc/module/moduleList/{pageId}
+GET {{endpoint}}/openapi/lc/module/moduleList/5
+
+
+#####################################
+### 组件实例属性（lc_low_auto_module_prop）
+#####################################
+
+### 新建 组件实例属性
+POST {{endpoint}}/openapi/crud/lc_low_auto_module_prop/lowAutoModuleProp/lowAutoModuleProps
+
+{
+  "moduleId":62,
+  "moduleName": "module_prop_test",
+  "moduleKey": "propKey_test",
+  "propName": "propName_test",
+  "propValue": "value_test",
+  "propDataType": "propDataType_test",
+  "dataType": "dataType_test"
+}
+
+### 根据id查看 组件实例属性
+### /openapi/crud/lc_low_auto_module_prop/lowAutoModuleProp/lowAutoModuleProps/{id}
+GET {{endpoint}}/openapi/crud/lc_low_auto_module_prop/lowAutoModuleProp/lowAutoModuleProps/13
+
+### 根据id修改 组件实例属性
+### /openapi/crud/lc_low_auto_module_prop/lowAutoModuleProp/lowAutoModuleProps/{id}
+PUT {{endpoint}}/openapi/crud/lc_low_auto_module_prop/lowAutoModuleProp/lowAutoModuleProps/13
+
+{
+  "moduleId":62,
+  "moduleName": "module_prop_test2",
+  "moduleKey": "propKey_test2",
+  "propName": "propName_test2",
+  "propValue": "value_test2",
+  "propDataType": "propDataType_test2",
+  "dataType": "dataType_test2"
+}
+
+### 根据id删除 组件实例属性
+### /openapi/crud/lc_low_auto_module_prop/lowAutoModuleProp/lowAutoModuleProps/{id}
+DELETE {{endpoint}}/openapi/crud/lc_low_auto_module_prop/lowAutoModuleProp/lowAutoModuleProps/12
+
+### 多条件查询所有的组件实例属性
+### pageNum = 页码
+### pageSize = 每页显示数
+### search = 
+### orderBy = 排序
+### sort = desc（降序）/ dsc（升序）
+### 除了以上参数，lc_low_auto_module_prop表中的每一个字段都可以作为参数
+GET {{endpoint}}/openapi/crud/lc_low_auto_module_prop/lowAutoModuleProp/lowAutoModuleProps?
+
+
+#####################################
+### 组件实例数据绑定（lc_low_auto_module_data）
+#####################################
+
+### 新建 组件实例数据绑定
+POST {{endpoint}}/openapi/crud/lc_low_auto_module_data/lowAutoModuleData/lowAutoModuleDatas
+
+{
+  "moduleId": 9,
+  "autolistItemModuleName": "name_test",
+  "autolistItemNavigation": "navigation_test",
+  "autolistResponseListKey": "listkey_test",
+  "bindingField": "moduleData_test",
+  "bindingType": "moduleDateType_test",
+  "bindingTarget": "moduleTarget_test",
+  "loadApi": "api/test",
+  "request_ps": "pageSize",
+  "request_pn": "pageNum"
+}
+
+### 根据id查看 组件实例数据绑定
+### /openapi/crud/lc_low_auto_module_data/lowAutoModuleData/lowAutoModuleDatas/{id}
+GET {{endpoint}}/openapi/crud/lc_low_auto_module_data/lowAutoModuleData/lowAutoModuleDatas/18
+
+### 根据id修改 组件实例数据绑定‘
+### /openapi/crud/lc_low_auto_module_data/lowAutoModuleData/lowAutoModuleDatas/{id}
+PUT {{endpoint}}/openapi/crud/lc_low_auto_module_data/lowAutoModuleData/lowAutoModuleDatas/20
+
+{
+  "moduleId": 9,
+  "autolistItemModuleName": "name_test2",
+  "autolistItemNavigation": "navigation_test2",
+  "autolistResponseListKey": "listkey_test2",
+  "bindingField": "moduleData_test2",
+  "bindingType": "moduleDateType_test2",
+  "bindingTarget": "moduleTarget_test2",
+  "loadApi": "api/test2",
+  "request_ps": "pageSize",
+  "request_pn": "pageNum"
+}
+
+### 根据id删除 组件实例数据绑定
+### /openapi/crud/lc_low_auto_module_data/lowAutoModuleData/lowAutoModuleDatas/{id}
+DELETE {{endpoint}}/openapi/crud/lc_low_auto_module_data/lowAutoModuleData/lowAutoModuleDatas/19
+
+### 多条件查询所有组件实例属性
+### pageNum = 页码
+### pageSize = 每页显示数
+### search = 
+### orderBy = 排序
+### sort = desc（降序）/ dsc（升序）
+### 除了以上参数，lc_low_auto_module_data表中的每一个字段都可以作为参数
+GET {{endpoint}}/openapi/crud/lc_low_auto_module_data/lowAutoModuleData/lowAutoModuleDatas?pageSize=100
+
+
+#####################################
+### 组件实体风格（lc_low_auto_module_style）
+#####################################
+
+### 新建 组件实体风格
+POST {{endpoint}}/openapi/crud/lc_low_auto_module_style/lowAutoModuleStyle/lowAutoModuleStyles
+
+{
+  "groupName": "styleGroupNname_test",
+  "attrName": "styleAttrName_test",
+  "attrValue": "10",
+  "dataType": "SELECT",
+  "optionName": "String"
+}
+
+### 根据id查看 组件实体风格
+### /openapi/crud/lc_low_auto_module_style/lowAutoModuleStyle/lowAutoModuleStyles/{id}
+GET {{endpoint}}/openapi/crud/lc_low_auto_module_style/lowAutoModuleStyle/lowAutoModuleStyles/2
+
+### 根据id修改 组件实体风格
+### /openapi/crud/lc_low_auto_module_style/lowAutoModuleStyle/lowAutoModuleStyles/{id}
+PUT {{endpoint}}/openapi/crud/lc_low_auto_module_style/lowAutoModuleStyle/lowAutoModuleStyles/3
+
+{
+  "groupName": "styleGroupNname_test2",
+  "attrName": "styleAttrName_test2",
+  "attrValue": "11",
+  "dataType": "SELECT",
+  "optionName": "String"
+}
+
+### 根据id删除 组件实体风格
+### /openapi/crud/lc_low_auto_module_style/lowAutoModuleStyle/lowAutoModuleStyles/{id}
+DELETE {{endpoint}}/openapi/crud/lc_low_auto_module_style/lowAutoModuleStyle/lowAutoModuleStyles/3
+
+### 多条件查询所有组件实体风格
+### pageNum = 页码
+### pageSize = 每页显示数
+### search = 
+### orderBy = 排序
+### sort = desc（降序）/ dsc（升序）
+### 除了以上参数，lc_low_auto_module_style表中的每一个字段都可以作为参数
+GET {{endpoint}}/openapi/crud/lc_low_auto_module_style/lowAutoModuleStyle/lowAutoModuleStyles?
+
+
+#####################################
+### 标准组件管理（lc_low_auto_component）
+#####################################
+
+### 新建 标准组件管理
+POST {{endpoint}}/openapi/crud/lc_low_auto_component/lowAutoComponent/lowAutoComponents
+
+{
+  "name": "Avatar",
+  "componentName": "Avatar",
+  "componentType": "Avatar",
+  "componentOption": "presenter",
+    "items": [
+      {
+        "propName": "size",
+        "propTips": "头像大小",
+        "propDefaultValue": "20",
+        "dataType": "NUMBER"
+      },
+      {
+        "propName": "url",
+        "propTips": "头像链接",
+        "dataType": "STRING"
+      }
+    ]
+}
+
+
+### 新建 标准组件管理
+POST {{endpoint}}/openapi/crud/lc_low_auto_component/lowAutoComponent/lowAutoComponents
+
+{
+  "name": "Flexbox",
+  "componentName": "Avatar",
+  "componentType": "Avatar",
+  "componentOption": "presenter"
+}
+
+
+### 根据id查看 标准组件管理
+### /openapi/crud/lc_low_auto_component/lowAutoComponent/lowAutoComponents{id}
+GET {{endpoint}}/openapi/crud/lc_low_auto_component/lowAutoComponent/lowAutoComponents/52
+
+### 根据id修改 标准组件管理
+### /openapi/crud/lc_low_auto_component/lowAutoComponent/lowAutoComponents{id}
+PUT {{endpoint}}/openapi/crud/lc_low_auto_component/lowAutoComponent/lowAutoComponents/52
+Content-Type: application/json
+
+{
+  "name": "Avatar",
+  "componentName": "Avatar",
+  "componentType": "Avatar",
+  "componentOption": "presenter",
+  "items": [
+      {
+        "id": 155,
+        "propName": "size",
+        "propTips": "头像大小",
+        "propDefaultValue": "20",
+        "dataType": "NUMBER"
+      },
+      {
+        "id": 153,
+        "propName": "url",
+        "propTips": "头像链接",
+        "dataType": "STRING"
+      }
+  ]
+}
+
+
+### 根据id删除 标准组件管理
+### /openapi/crud/lc_low_auto_component/lowAutoComponent/lowAutoComponents{id}
+DELETE {{endpoint}}/openapi/crud/lc_low_auto_component/lowAutoComponent/lowAutoComponents/48
+
+### 多条件查询所有标准组件
+### pageNum = 页码
+### pageSize = 每页显示数
+### search = 
+### orderBy = 排序
+### sort = desc（降序）/ dsc（升序）
+### 除了以上参数，lc_low_auto_component表中的每一个字段都可以作为参数
+GET {{endpoint}}/openapi/crud/lc_low_auto_component/lowAutoComponent/lowAutoComponents?pageNum=4
+
+
+
+#####################################
+### 标准组件管理
+#####################################
+
+
+### 获取所有option为cart的组件信息
+GET {{endpoint}}/openapi/lc/components/cart
+
+### 根据componentName获取cart参数
+### /openapi/lc/component/cart/{componentName}
+GET {{endpoint}}/openapi/lc/components/cart/Cart
+
+### 根据autoLayoutName获取autolayoutJson
+### /openapi/lc/components/layoutJson/{autoLayoutName}
+GET {{endpoint}}/openapi/lc/components/layoutJson/thisAutoLayout
+
+
+#####################################
+### 标准组件属性管理（lc_low_auto_component_prop）
+#####################################
+
+### 新建 标准组件属性管理
+POST {{endpoint}}/openapi/crud/lc_low_auto_component_prop/lowAutoComponentProp/lowAutoComponentProps
+Content-Type: application/json
+
+{
+  "propName": "size",
+  "propTips": "尺寸",
+  "propDefaultValue": "21",
+  "dataType": "String"
+}
+
+### 根据id查看 标准组件属性管理
+### /openapi/crud/lc_low_auto_component_prop/lowAutoComponentProp/lowAutoComponentProps/{id}
+GET {{endpoint}}/openapi/crud/lc_low_auto_component_prop/lowAutoComponentProp/lowAutoComponentProps/9
+
+### 根据id修改 标准组件属性管理
+### /openapi/crud/lc_low_auto_component_prop/lowAutoComponentProp/lowAutoComponentProps/{id}
+PUT {{endpoint}}/openapi/crud/lc_low_auto_component_prop/lowAutoComponentProp/lowAutoComponentProps/14
+
+{
+  "componentId": 52,
+  "propName": "prop_test2",
+  "propTips": "prop_test2",
+  "propDefaultValue": "12",
+  "dataType": "String",
+  "optionName": "prop_test2"
+}
+
+
+### 根据id删除 标准组件属性管理
+### /openapi/crud/lc_low_auto_component_prop/lowAutoComponentProp/lowAutoComponentProps/{id}
+DELETE {{endpoint}}/openapi/crud/lc_low_auto_component_prop/lowAutoComponentProp/lowAutoComponentProps/14
+
+
+### 多条件查询所有标准组件属性管理
+### pageNum = 页码
+### pageSize = 每页显示数
+### search = 
+### orderBy = 排序
+### sort = desc（降序）/ dsc（升序）
+### 除了以上参数，lc_low_auto_component_prop表中的每一个字段都可以作为参数
+GET {{endpoint}}/openapi/crud/lc_low_auto_component_prop/lowAutoComponentProp/lowAutoComponentProps?
+
+
+#####################################
+### 属性值选项（lc_low_auto_prop_option）
+#####################################
+
+### 新建 属性值选项
+POST {{endpoint}}/openapi/crud/lc_low_auto_prop_option/lowAutoPropOption/lowAutoPropOptions
+
+{
+  "optionName": "option_test",
+  "optionItemValue": "12"
+}
+
+### 根据id查看 属性值选项
+### /openapi/crud/lc_low_auto_prop_option/lowAutoPropOption/lowAutoPropOptions/{id}
+GET {{endpoint}}/openapi/crud/lc_low_auto_prop_option/lowAutoPropOption/lowAutoPropOptions/2
+
+### 根据id修改 属性值选项
+### /openapi/crud/lc_low_auto_prop_option/lowAutoPropOption/lowAutoPropOptions/{id}
+PUT {{endpoint}}/openapi/crud/lc_low_auto_prop_option/lowAutoPropOption/lowAutoPropOptions/3
+
+{
+  "propName": "option_test2",
+  "propOption": "13",
+  "note": "修改测试"
+}
+
+### 根据id删除 属性值选项
+### /openapi/crud/lc_low_auto_prop_option/lowAutoPropOption/lowAutoPropOptions/{id}
+DELETE {{endpoint}}/openapi/crud/lc_low_auto_prop_option/lowAutoPropOption/lowAutoPropOptions/3
+
+### 多条件查询所有属性值选项
+### 多条件查询所有标准组件属性管理
+### pageNum = 页码
+### pageSize = 每页显示数
+### search = 
+### orderBy = 排序
+### sort = desc（降序）/ dsc（升序）
+### 除了以上参数，lc_low_auto_prop_option表中的每一个字段都可以作为参数
+GET {{endpoint}}/openapi/crud/lc_low_auto_prop_option/lowAutoPropOption/lowAutoPropOptions?
+
+
+
+
+####################################
+## 属性常量
+####################################
+
+
+#####################################
+### 通用属性（lc_low_auto_prop_default）
+#####################################
+
+### 新建 常见属性常量
+POST {{endpoint}}/openapi/crud/lc_low_auto_prop_default/lowAutoPropDefault/lowAutoPropDefaults
+
+{
+  "propName": "font-weight",
+}
+
+### 根据id查看 常见属性常量
+### /openapi/crud/lc_low_auto_prop_default/lowAutoPropDefault/lowAutoPropDefaults/{id}
+GET {{endpoint}}/openapi/crud/lc_low_auto_prop_default/lowAutoPropDefault/lowAutoPropDefaults/2
+
+### 根据id修改 常见属性常量
+### /openapi/crud/lc_low_auto_prop_default/lowAutoPropDefault/lowAutoPropDefaults/{id}
+PUT {{endpoint}}/openapi/crud/lc_low_auto_prop_default/lowAutoPropDefault/lowAutoPropDefaults/4
+
+{
+  "propName": "font-weight",
+}
+
+### 根据id删除 常见属性常量
+### /openapi/crud/lc_low_auto_prop_default/lowAutoPropDefault/lowAutoPropDefaults/{id}
+DELETE {{endpoint}}/openapi/crud/lc_low_auto_prop_default/lowAutoPropDefault/lowAutoPropDefaults/1
+
+### 多条件查询所有常见属性常量
+### 多条件查询所有标准组件属性管理
+### pageNum = 页码
+### pageSize = 每页显示数
+### search = 
+### orderBy = 排序
+### sort = desc（降序）/ dsc（升序）
+### 除了以上参数，lc_low_auto_prop_default表中的每一个字段都可以作为参数
+GET {{endpoint}}/openapi/crud/lc_low_auto_prop_default/lowAutoPropDefault/lowAutoPropDefaults
+
+
+
+
+
+#####################################
+### 色板管理（lc_low_auto_palette）
+#####################################
+
+### 新建 色板管理
+POST {{endpoint}}/openapi/crud/lc_low_auto_palette/lowAutoPalette/lowAutoPalettes
+
+{
+  "palette_name": "palette_test",
+  "name": "色板管理测试",
+  "color": "#ffffff"
+}
+
+### 根据id查看色板
+### /openapi/crud/lc_low_auto_palette/lowAutoPalette/lowAutoPalettes/{id}
+GET {{endpoint}}/openapi/crud/lc_low_auto_palette/lowAutoPalette/lowAutoPalettes/1
+
+### 根据id修改色板
+### /openapi/crud/lc_low_auto_palette/lowAutoPalette/lowAutoPalettes/{id}
+PUT {{endpoint}}/openapi/crud/lc_low_auto_palette/lowAutoPalette/lowAutoPalettes/1
+
+{
+  "palette_name": "palette_put_test",
+  "name": "色板管理修改测试",
+  "color": "#iiiiii"
+}
+
+### 根据id删除色板
+### /openapi/crud/lc_low_auto_palette/lowAutoPalette/lowAutoPalettes/{id}
+DELETE {{endpoint}}/openapi/crud/lc_low_auto_palette/lowAutoPalette/lowAutoPalettes/1
+
+
+### 页面参数转换-范例
+{  
+    "version": "1",
+    "name": "page_home",
+    "title": "场馆资讯",
+    "pageStyle": {},
+    "moduleContainer":{
+      "padding": "10px",
+      "margin": "10px",
+      "fill": "white",
+      "stroke": 
+      {
+         "color": "lightgray",
+         "lineWidth": "1px"
+      },
+      "shadow":
+      {
+         "radius": 5
+      },
+      "corner": "8px",
+      "spacing": "1em"
+   },
+  "modules": [
+    {
+      "type": "workdflow",
+      "key": "df7b3702-cea0-11eb-b052-0800271e55b7",
+      "name": "工作流组件",
+    },
+    {
+      "type": "autolist",
+      "key": "5243e64e-40ca-8b50-cdce-1623039409345",
+      "name": "动态列表组件",
+      "binding": 
+      {
+        "profile": {},
+        "list":"list",
+        "total":"total"
+      },
+      "bindingTarget": "data",
+      "container":{}
+    },
+    {
+      "type": "autoform",
+      "key": "96afd71a-c8d5-11eb-aca5-0800271e55b7",
+      "name": "动态表单组件",
+      "container":{}
+    }
+  ], 
+  "moduleData":
+    {
+        "df7b3702-cea0-11eb-b052-0800271e55b7":{
+            "id": "68"
+        },
+        "5243e64e-40ca-8b50-cdce-1623039409345":
+        {
+          "loadApi": "https://www.fastmock.site/mock/96df9e8fb08bfe844b3e565f5a3206fe/test/api/pub/getList",
+          "tabConfig":
+          {
+            "field":"type",
+            "show": true,
+            "list":[
+                {
+                    "name":"全部",
+                    "value":"0"
+                },
+                {
+                    "name":"时尚搭配",
+                    "value":"100"
+                },
+                {
+                  "name":"行业咨询",
+                  "value":"200"
+                }
+            ]
+          },
+          "response":
+          {
+              "list":"type.list",
+              "total":"type.total"
+          },
+          "request":
+          {
+            "fixed":"type",
+            "default":
+              {
+                "type":"0"
+              },
+            "pn":"pageNo",
+            "ps":"pageSize"
+          },
+          "itemNavigation": "/articleDetail/index?id=&title",
+          "itemModule":
+          {
+              "name":"ArticleItem"
+          },
+          "binding":
+          {
+            "title":"title"
+          }
+        }, 
+        "96afd71a-c8d5-11eb-aca5-0800271e55b7":{
+           "url": "?id=10"
+        }
+    }
+}
+
+        
