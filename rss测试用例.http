@@ -1,0 +1,102 @@
+# @endpoint=http://localhost:8080
+
+@endpoint=http://house.cloud.smallsaas.cn
+
+### 查看图文列表
+GET {{endpoint}}/api/u/rss
+
+
+### 查看图文详情
+GET {{endpoint}}/api/u/rss/11
+
+
+### 新增图文
+POST {{endpoint}}/api/u/rss
+[
+    {
+      "pictures": null,
+      "sortNumber": 1,
+      "title": "张三",
+      "status":1
+    },
+    {
+      "pictures": null,
+      "sortNumber": 1,
+      "title": "李四",
+      "status":1
+    },
+    {
+      "pictures": null,
+      "sortNumber": 1,
+      "title": "清奇",
+      "status":1
+    }
+]
+
+
+### 删除图文
+DELETE {{endpoint}}/api/u/rss/1
+
+
+
+### 修改组件值
+POST {{endpoint}}/api/u/rss/preview
+{
+    "createTime": null,
+    "id": "11",
+    "name": null,
+    "note": null,
+    "orgId": null,
+    "rssItemList": [
+      {
+        "createTime": "2022-10-08 06:42:04",
+        "fontSize": null,
+        "fontWeight": null,
+        "id": "26",
+        "lineHeight": null,
+        "note": null,
+        "pictures": null,
+        "pid": "11",
+        "rssComponentList": [
+          {
+            "componentFormInputOption": null,
+            "componentName": "tag",
+            "componentOption": null,
+            "componentTag": null,
+            "componentType": "tag",
+            "id": "3",
+            "name": null,
+            "rssComponentPropList": [
+              {
+                "componentId": "3",
+                "dataType": null,
+                "id": "6",
+                "optionName": null,
+                "propDefaultValue": "光线好",
+                "propName": null,
+                "propTips": null
+              },
+              {
+                "componentId": "3",
+                "dataType": null,
+                "id": "7",
+                "optionName": null,
+                "propDefaultValue": "阳光充足",
+                "propName": null,
+                "propTips": null
+              }
+            ],
+            "rssItemId": "26"
+          }
+        ],
+        "sortNumber": 1,
+        "status": 1,
+        "title": ";;;/n光线好,阳光充足",
+        "updateTime": null
+      }
+    ],
+    "sortNumber": null,
+    "status": 1,
+    "updateTime": null,
+    "uuid": "a45fc6d4-eaab-4c33-8b3a-7048e300124a"
+  }
