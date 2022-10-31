@@ -9,3 +9,12 @@ PUT {{endpoint}}/dev/auto/forms/1000006651/page
 "title": "换房记录1",
 "moduleContainer": {"background":"white"}
 }
+
+
+
+### 添加页面创建页面 可以的类型如下
+# autolist
+# banner
+# navlist
+# autoform
+POST {{endpoint}}/dev/auto/forms/{pageId}/page/{category}
