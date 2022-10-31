@@ -1,5 +1,5 @@
 # @endpoint = http://static.smallsaas.cn
-@endpoint = http://localhost:8080
+@endpoint = http://localhost:8081
 
 ### 修改页面配置属性 可嵌套配置
 ### 如果该属性没有 会自动加上
@@ -10,11 +10,15 @@ PUT {{endpoint}}/dev/auto/forms/1000006651/page
 "moduleContainer": {"background":"white"}
 }
 
-
+### 模板列表
+GET  {{endpoint}}/dev/auto/forms/page/template
 
 ### 添加页面创建页面 可以的类型如下
 # autolist
 # banner
 # navlist
 # autoform
-POST {{endpoint}}/dev/auto/forms/{pageId}/page/{category}
+POST {{endpoint}}/dev/auto/forms/page/128
+
+
+
