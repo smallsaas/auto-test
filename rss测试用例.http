@@ -100,3 +100,14 @@ POST {{endpoint}}/api/u/rss/preview
     "updateTime": null,
     "uuid": "a45fc6d4-eaab-4c33-8b3a-7048e300124a"
   }
+
+
+
+  ### 获取rssItem 列表
+GET {{endpoint}}/api/u/rss/rssItem
+
+### 获取rssItem详情
+GET {{endpoint}}/api/u/rss/rssItem/99
+
+### 获取rssItem 提交原文档内容
+GET {{endpoint}}/api/u/rss/rssItem/content/99

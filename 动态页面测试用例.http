@@ -1,5 +1,5 @@
-@endpoint = http://static.smallsaas.cn
-# @endpoint=http://localhost:8080
+# @endpoint = http://static.smallsaas.cn
+@endpoint=http://localhost:8081
 
 ### 创建一个新页面, 并加到当前页面
 ### pageType: [navlist, autolist, autoform, autopage]
@@ -11,10 +11,10 @@ POST {{endpoint}}/dev/auto/forms/current
 
 
 ### 追加新组件  暂时支持navlist
-POST {{endpoint}}/dev/auto/forms/5555599/modules
+POST  {{endpoint}}/dev/auto/forms/5555599/modules
 
 {
-    "moduleName": "navlist"
+    "moduleName": "banner"
 }
 
 
@@ -43,15 +43,16 @@ POST {{endpoint}}/dev/auto/forms/5555599/module/op/copy
 }
 
 
-### 编辑指定的页面组件
-POST {{endpoint}}/dev/auto/forms/5555599/modules/current
 
-{
-    "index":0
-}
+# ### 编辑指定的页面组件
+# POST {{endpoint}}/dev/auto/forms/5555599/modules/current
 
-### 获取指定的页面组件
-GET {{endpoint}}/dev/auto/forms/5555599/modules/current
+# {
+#     "index":0
+# }
+
+# ### 获取指定的页面组件
+# GET {{endpoint}}/dev/auto/forms/5555599/modules/current
 
 
 ### 对指定的组件进行编辑
