@@ -103,7 +103,7 @@ POST {{endpoint}}/api/u/rss/preview
 
 
 
-  ### 获取rssItem 列表
+### 获取rssItem 列表
 GET {{endpoint}}/api/u/rss/rssItem
 
 ### 获取rssItem详情

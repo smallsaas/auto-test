@@ -1,0 +1,12 @@
+### @endpoint=http://localhost:8081
+
+### @endpoint=http://house.cloud.smallsaas.cn
+
+@endpoint = http://static.smallsaas.cn
+
+
+### 修改module container
+POST {{endpoint}}/dev/auto/forms/modules/1235662/container?currentModule=0
+{
+"grid-template-columns": "repeat(3, 1fr)",
+}

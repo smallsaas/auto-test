@@ -1,0 +1,39 @@
+### @endpoint=http://localhost:8081
+
+### @endpoint=http://house.cloud.smallsaas.cn
+
+@endpoint = http://static.smallsaas.cn
+### 修改auto listloadApi
+POST {{endpoint}}/dev/auto/forms/autoList/1235662/loadApi
+{
+  "currentModule":0,
+  "loadApi":"/api/u/tenants"
+}
+
+
+###修改autolist itemNavigation
+POST {{endpoint}}/dev/auto/forms/autoList/1235662/itemNavigation
+{
+  "currentModule":0,
+  "itemNavigation":"/api/u/tenants"
+}
+
+
+### 修改autoList的response
+POST {{endpoint}}/dev/auto/forms/autoList/1235662/response
+{
+  "currentModule":0,
+  "list":"data"
+}
+
+
+
+### 获取api列表
+GET {{endpoint}}/openapi/lc/apis?apiMethod=GET
+
+
+### autolist binding
+POST {{endpoint}}/dev/auto/forms/autoList/1235662/binding?currentModule=0
+{
+  "name":"name"
+}
