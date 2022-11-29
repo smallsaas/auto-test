@@ -1,0 +1,72 @@
+@endpoint=http://localhost:8081
+
+# @endpoint=http://house.cloud.smallsaas.cn
+
+# @endpoint = http://static.smallsaas.cn
+
+# @endpoint = http://lowcode.smallsaas.cn
+
+
+###获取tabConfig配置
+GET {{endpoint}}/dev/auto/forms/autoList/77777775/tabConfig?currentModule=0
+
+
+# 修改tabconfig配置
+POST {{endpoint}}/dev/auto/forms/autoList/77777775/tabConfig?currentModule=0
+{
+    "show":true
+}
+
+
+###获取全部tab List
+### currentModule 当前的操作module的下标 默认0
+GET {{endpoint}}/dev/auto/forms/autoList/77777775/tabConfig/list?currentModule=0
+
+
+### 获取某个下标的tab
+### currentModule 当前的操作module的下标 默认0
+GET {{endpoint}}/dev/auto/forms/autoList/77777775/tabConfig/list/1?currentModule=0
+
+### 添加
+POST {{endpoint}}/dev/auto/forms/autoList/77777775/tabConfig/list/op/add?currentModule=0
+{
+"index":0,
+ "name": "navlist",
+    "value": "navlist"
+}
+
+
+# 修改 子项属性
+# index为必填项
+### currentModule 当前的操作module的下标 默认0
+POST {{endpoint}}/dev/auto/forms/autoList/77777775/tabConfig/list/op/modify?currentModule=0
+{
+    "index":0,
+     "value": "navlist1"
+}
+
+### 移动位置
+### currentModule 当前的操作module的下标 默认0
+POST {{endpoint}}/dev/auto/forms/autoList/77777775/tabConfig/list/op/move?currentModule=0
+{
+    "from":0,
+    "to":2,
+}
+
+# 复制
+### from 是复制的下标
+### to 是复制到哪 可不填 默认为最后
+### currentModule 当前的操作module的下标 默认0
+POST {{endpoint}}/dev/auto/forms/autoList/77777775/tabConfig/list/op/copy?currentModule=0
+{
+    "from":0,
+    "to":2,
+}
+
+###移除
+###index 为移除的下表
+### currentModule 当前的操作module的下标 默认0
+POST {{endpoint}}/dev/auto/forms/autoList/77777775/tabConfig/list/op/remove?currentModule=0
+{
+    "index":0
+}
