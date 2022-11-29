@@ -1,0 +1,72 @@
+@endpoint=http://localhost:8081
+
+# @endpoint=http://house.cloud.smallsaas.cn
+
+# @endpoint = http://static.smallsaas.cn
+
+# @endpoint = http://lowcode.smallsaas.cn
+
+
+###获取全部列表路由项
+### currentModule 当前的操作module的下标 默认0
+GET {{endpoint}}/dev/auto/forms/autoList/1235662/multiNavigationModule?currentModule=0
+
+
+### 获取某个下表的列表路由
+### currentModule 当前的操作module的下标 默认0
+GET {{endpoint}}/dev/auto/forms/autoList/1235662/multiNavigationModule/1?currentModule=0
+
+### 添加
+POST {{endpoint}}/dev/auto/forms/autoList/1235662/multiNavigationModule/op/add?currentModule=0
+{
+"index":0,
+"multiItemNavigation": "PUT /api/u/house/administrators/userTenantMangeEndpoint/markProductionData?orgId=orgId&locked=false",
+    "multiNavigationModule": {
+      "expect": {
+        "field": "locked",
+        "value": true
+      },
+      "label": "解除锁定",
+      "tips": "确定解除锁定数据吗？",
+      "option": "outline"
+    }
+}
+
+
+# 修改 子项属性
+# index为必填项
+### currentModule 当前的操作module的下标 默认0
+POST {{endpoint}}/dev/auto/forms/autoList/1235662/multiNavigationModule/op/modify?currentModule=0
+{
+    "index":0,
+    "multiItemNavigation":"PUT /api/u/house/administrators/userTenantMangeEndpoint/markProductionData?orgId=orgId&locked=false",
+    "multiNavigationModule": {
+      "label": "解除锁定2"
+    }
+}
+
+### 移动位置
+### currentModule 当前的操作module的下标 默认0
+POST {{endpoint}}/dev/auto/forms/autoList/1235662/multiNavigationModule/op/move?currentModule=0
+{
+    "from":0,
+    "to":2,
+}
+
+# 复制
+### from 是复制的下标
+### to 是复制到哪 可不填 默认为最后
+### currentModule 当前的操作module的下标 默认0
+POST {{endpoint}}/dev/auto/forms/autoList/1235662/multiNavigationModule/op/copy?currentModule=0
+{
+    "from":0,
+    "to":2,
+}
+
+###移除
+###index 为移除的下表
+### currentModule 当前的操作module的下标 默认0
+POST {{endpoint}}/dev/auto/forms/autoList/1235662/multiNavigationModule/op/remove?currentModule=0
+{
+    "index":4
+}
